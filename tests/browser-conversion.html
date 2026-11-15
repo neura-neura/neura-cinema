@@ -4,7 +4,7 @@
 <input id="file" type="file"><select id="quality"><option>720</option><option>480</option><option>1080</option></select><button id="convert">Preparar MP4</button><button id="cancel">Detener</button><button id="clear">Eliminar copia temporal de prueba</button>
 <progress id="progress" value="0" max="100"></progress><pre id="state">Selecciona un archivo sintético.</pre><a id="download" hidden download="browser-converted.mp4">Descargar MP4 de prueba</a><br><video id="preview" controls></video>
 <script type="module">
-import {prepare,cancel} from '../local-media.js?v=2';
+import {prepare,cancel} from '../local-media.js?v=3';
 let stop=false,result=null,url='';const $=id=>document.getElementById(id);
 $('cancel').onclick=()=>{stop=true;void cancel()};
 $('convert').onclick=async()=>{stop=false;$('convert').disabled=true;let file=$('file').files[0],start=performance.now();try{if(!file)throw Error('Selecciona un archivo');result=await prepare(file,$('quality').value,p=>{$('progress').value=p.progress*100;$('state').textContent=JSON.stringify(p)},()=>stop);url=URL.createObjectURL(result.file);$('download').href=url;$('download').hidden=false;$('preview').src=url;$('state').textContent=JSON.stringify({done:true,seconds:(performance.now()-start)/1000,inputBytes:file.size,outputBytes:result.file.size,outputName:result.file.name});}catch(e){$('state').textContent=JSON.stringify({error:e.message,stopped:stop})}finally{$('convert').disabled=false}};

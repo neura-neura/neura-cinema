@@ -37,7 +37,7 @@ async function upload(){
   await refresh();let originalResume=sessions.find(s=>s.status==='uploading'&&s.name===f.name&&s.bytes===f.size);
   if($('prepareLocal').checked&&!originalResume){
    try{wake=await navigator.wakeLock?.request('screen')}catch(e){}
-   $('cancelUpload').textContent='Detener preparación';$('uploadStatus').textContent='Analizando el video en esta computadora…';localConverter=await import('./local-media.js?v=2');
+   $('cancelUpload').textContent='Detener preparación';$('uploadStatus').textContent='Analizando el video en esta computadora…';localConverter=await import('./local-media.js?v=3');
    let began=performance.now(),last=0,inputSize=f.size;
    prepared=await localConverter.prepare(f,$('quality').value,info=>{let time=performance.now();if(time-last<250&&info.progress<1)return;last=time;let elapsed=(time-began)/1000,eta=info.progress>.02?elapsed*(1-info.progress)/info.progress:null;$('progress').value=info.progress*100;$('uploadStatus').textContent=info.phase==='cached'?'MP4 local recuperado; reanudando la subida.':('Preparando en esta computadora: '+Math.floor(info.progress*100)+'%'+(eta>2?' · ~'+Math.ceil(eta/60)+' min restantes':'')+'. Mantén esta pestaña abierta.')},()=>stop);
    f=prepared.file;$('localSummary').textContent='MP4 preparado en esta computadora: '+bytes(inputSize)+' → '+bytes(f.size)+'. El servidor comprobará la compatibilidad antes de compartirlo.';

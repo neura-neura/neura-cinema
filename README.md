@@ -27,3 +27,13 @@ El video se sube por bloques de 1 MiB reintentables. El servicio prepara un MP4 
 Código de la interfaz; el backend se instala separadamente. No hay credenciales incluidas.
 
 Para continuar una subida empezada con la versión anterior: pulsa Detener subida, recarga la página, activa la red local, selecciona exactamente el mismo archivo y pulsa Subir y preparar. La posición recibida se conserva en el servidor. La ruta local usa bloques de 4 MiB; la de internet conserva bloques de 1 MiB. Si falla una petición a la red local, se reintenta por internet comprobando la posición antes de continuar. El soporte del permiso de red local depende del navegador; si lo bloquea, la página conserva la ruta por internet.
+
+## Preparación en esta computadora
+
+En navegadores compatibles, «Preparar en esta computadora» queda activado por defecto. Selecciona el original, la calidad y Subir y preparar: la página crea el MP4 localmente y después envía ese archivo, usando la ruta LAN si está activada. El servidor comprueba el MP4 y, si ya es compatible, lo publica sin reconvertir. Los subtítulos se añaden por separado como antes. Mantén la pestaña abierta hasta que termine de copiarse el archivo. No se instala ningún lanzador.
+
+La conversión usa WebCodecs y solicita aceleración por hardware, cuya disponibilidad depende del equipo y navegador. Si una pista necesaria no es compatible, se muestra un error y no se sube un video sin audio; puedes desmarcar la preparación local para usar el servidor.
+
+El resultado se guarda progresivamente en almacenamiento temporal del navegador. Si detienes la subida, seleccionar el mismo original y la misma calidad recupera el MP4 para continuar sin reconvertir. Tras completar la copia al servidor se elimina esa copia temporal. Al usar de nuevo el conversor se limpian borradores caducados (48 horas). Borrar los datos del sitio también elimina los borradores. Una subida original empezada con la versión anterior se reanuda como original, para no descartar los bytes ya enviados.
+
+Mediabunny 1.66.0 se distribuye sin modificaciones bajo MPL-2.0. [Licencia y código fuente correspondiente](vendor/NOTICE.md).
