@@ -7,7 +7,7 @@ Selecciona videos y subtítulos desde el navegador; tu servidor propio los recib
 ## Uso
 
 1. Abre la página: entra automáticamente como invitado, sin cuenta ni clave. Para gestionar las sesiones de todos usa **Administrar con GitHub** (solo la cuenta propietaria).
-2. Si estás en la misma red que el servidor, pulsa **Conectar por red local** y permite el acceso a dispositivos de la red si el navegador lo solicita. Los bloques de video viajan directamente a tu servidor por HTTP dentro de la red local; los enlaces de reproducción siguen siendo HTTPS públicos. Si no estás en casa, sigue usando internet.
+2. Si estás en la misma red que el servidor, escribe la **IP o nombre local** y el **puerto** (8767 por defecto), pulsa **Guardar y conectar por LAN** y permite el acceso a dispositivos de la red si el navegador lo solicita. La dirección y la preferencia de conexión se guardan en este navegador. **Solo guardar** conserva la dirección sin conectar. Los bloques de video viajan directamente a tu servidor por HTTP dentro de la red local; los enlaces de reproducción siguen siendo HTTPS públicos. Si no estás en casa, sigue usando internet.
 3. Selecciona un video y pulsa **Subir y preparar**. El proceso termina de copiarlo antes de publicar el enlace.
 4. Añade SRT o ASS; se convierten a texto temporizado, sin dibujos ni estilos avanzados ASS.
 5. Copia **Video URL** al reproductor del mundo y **Subtitle URL** a su panel de subtítulos.
