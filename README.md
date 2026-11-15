@@ -6,14 +6,14 @@ Selecciona videos y subtítulos desde el navegador; tu servidor propio los recib
 
 ## Uso
 
-1. Conecta la dirección HTTPS del servidor con la clave privada del servicio.
+1. Abre la página: entra automáticamente como invitado, sin cuenta ni clave. Para gestionar las sesiones de todos usa **Administrar con GitHub** (solo la cuenta propietaria).
 2. Selecciona un video y pulsa **Subir y preparar**. El proceso termina de copiarlo antes de publicar el enlace.
 3. Añade SRT o ASS; se convierten a texto temporizado, sin dibujos ni estilos avanzados ASS.
 4. Copia **Video URL** al reproductor del mundo y **Subtitle URL** a su panel de subtítulos.
 5. En VRChat usa una instancia privada y activa **Allow Untrusted URLs** en cada cliente.
 6. Para terminar pulsa **Terminar y eliminar**. Las sesiones caducan a las 24 horas por defecto, con opciones de 6 o 48 horas.
 
-El servidor debe permanecer encendido. Una vez preparado el video, la computadora que lo subió puede apagarse. La clave no se publica en este repositorio ni se guarda en almacenamiento persistente del navegador.
+El servidor debe permanecer encendido. Una vez preparado el video, la computadora que lo subió puede apagarse. El navegador recuerda automáticamente un identificador de invitado durante hasta 90 días; permite recuperar solo las sesiones que creaste allí. Borrar los datos del navegador o cambiar de computadora pierde ese acceso. La cuenta administradora puede recuperarlas. Las sesiones de video siguen caducando en 6, 24 o 48 horas, independientemente del acceso. Máximo dos sesiones activas por invitado. El acceso de administrador dura hasta 8 horas, se mantiene en la pestaña y se revoca al salir. GitHub solo verifica la identidad pública; no se solicitan permisos de repositorios.
 
 ## HTTPS y gratuidad
 
@@ -23,4 +23,4 @@ Loophole [anuncia gratuidad y ausencia de límites de transferencia](https://loo
 
 El video se sube por bloques de 1 MiB reintentables. El servicio prepara un MP4 H.264/AAC con descarga parcial y elimina el original de trabajo al terminar. No se afirma que el servidor detecte el fin de reproducción de todos los espectadores: la eliminación se hace mediante el botón o por caducidad.
 
-Código de la interfaz; el backend se instala separadamente. No hay claves incluidas.
+Código de la interfaz; el backend se instala separadamente. No hay credenciales incluidas.
